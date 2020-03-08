@@ -1,4 +1,4 @@
-THEOS_DEVICE_IP = 192.168.1.7
+THEOS_DEVICE_IP = iphone
 ARCHS = arm64 arm64e
 TARGET = iphone:clang:13.2:13.2
 
@@ -6,8 +6,14 @@ INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = DateUnderTime
-DateUnderTime_FILES = DateUnderTime.xm
-DateUnderTime_CFLAGS = -fobjc-arc
+TWEAK_NAME = DateUnderTime13
+DateUnderTime13_FILES = DateUnderTime13.xm
+DateUnderTime13_CFLAGS = -fobjc-arc
+DateUnderTime13_EXTRA_FRAMEWORKS += Cephei
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+
+SUBPROJECTS += Preferences
+include $(THEOS_MAKE_PATH)/aggregate.mk
+
+_EXTRA_FRAMEWORKS += Cephei
