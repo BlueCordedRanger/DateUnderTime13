@@ -24,7 +24,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>1st Line</string>
+			<string>1ST LINE</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -68,7 +68,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>2nd Line</string>
+			<string>2ND LINE</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -112,7 +112,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Language</string>
+			<string>LANGUAGE</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -130,7 +130,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Alignment</string>
+			<string>ALIGNMENT</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -155,6 +155,24 @@
 			</array>
 			<key>label</key>
 			<string>Alignment</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>LOCATION INDICATOR</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.johnzaro.dateundertime13prefs</string>
+			<key>key</key>
+			<string>locationIndicator</string>
+			<key>label</key>
+			<string>Show location Indicator</string>
 		</dict>
 		<dict>
         	<key>cell</key>

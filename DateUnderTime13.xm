@@ -1,4 +1,4 @@
-#import "DateUnderTime.h"
+#import "DateUnderTime13.h"
 
 static UIFont *font1;
 static UIFont *font2;
@@ -12,18 +12,18 @@ static NSMutableAttributedString *finalString;
 
 - (void)applyStyleAttributes: (id)arg1
 {
-	if(!(self.text != nil && [self.text containsString : @":"])) %orig(arg1);
+	if(!(self.text != nil && [self.text containsString: @":"])) %orig;
 }
 
--(void)setText: (NSString *)text
+-(void)setText: (NSString*)text
 {
-	if([text containsString : @":"])
+	if([text containsString: @":"])
 	{
 		@autoreleasepool
 		{
 			NSDate *nowDate = [NSDate date];
 
-			[finalString setAttributedString: [[NSAttributedString alloc] initWithString:[formatter1 stringFromDate: nowDate] attributes: @{ NSFontAttributeName: font1 }]];
+			[finalString setAttributedString: [[NSAttributedString alloc] initWithString: [formatter1 stringFromDate: nowDate] attributes: @{ NSFontAttributeName: font1 }]];
 			[finalString appendAttributedString: [[NSAttributedString alloc] initWithString: [formatter2 stringFromDate: nowDate] attributes: @{ NSFontAttributeName: font2 }]];
 
 			self.textAlignment = alignment;
@@ -33,6 +33,19 @@ static NSMutableAttributedString *finalString;
 	}
 	else %orig(text);
 }
+
+%end
+
+%group locationIndicatorGroup
+
+	%hook _UIStatusBarIndicatorLocationItem
+
+	- (id)applyUpdate: (id)arg1 toDisplayItem: (id)arg2
+	{
+		return nil;
+	}
+
+	%end
 
 %end
 
@@ -58,6 +71,8 @@ static NSMutableAttributedString *finalString;
 
 			[pref registerInteger: &alignment default: 1 forKey: @"alignment"];
 
+			[pref registerBool: &locationIndicator default: YES forKey: @"locationIndicator"];
+
 			formatter1 = [[NSDateFormatter alloc] init];
 			formatter1.locale = [[NSLocale alloc] initWithLocaleIdentifier: locale];
 			formatter1.timeStyle = NSDateFormatterNoStyle;
@@ -77,6 +92,8 @@ static NSMutableAttributedString *finalString;
 			finalString = [[NSMutableAttributedString alloc] init];
 
 			%init;
+
+			if(!locationIndicator) %init(locationIndicatorGroup);
 		}
 	}
 }

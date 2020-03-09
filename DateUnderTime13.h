@@ -16,6 +16,8 @@ NSString *_Nullable locale;
 
 long alignment;
 
+BOOL locationIndicator;
+
 @interface _UIStatusBarStringView : UILabel
 @property(nullable, nonatomic, copy) NSString *text;
 @property(nonatomic) NSTextAlignment textAlignment;
