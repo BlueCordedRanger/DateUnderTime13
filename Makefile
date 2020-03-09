@@ -15,5 +15,3 @@ include $(THEOS_MAKE_PATH)/tweak.mk
 
 SUBPROJECTS += Preferences
 include $(THEOS_MAKE_PATH)/aggregate.mk
-
-_EXTRA_FRAMEWORKS += Cephei
