@@ -4,7 +4,7 @@ TARGET = iphone:clang:11.2:11.2
 include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = DateUnderTime13Prefs
-DateUnderTime13Prefs_FILES = DUTAppearanceSettings.m DUTRootListController.xm
+DateUnderTime13Prefs_FILES = DUTAppearanceSettings.m DUTRootHeaderView.mm DUTRootListController.xm
 DateUnderTime13Prefs_INSTALL_PATH = /Library/PreferenceBundles
 DateUnderTime13Prefs_FRAMEWORKS = UIKit
 DateUnderTime13Prefs_PRIVATE_FRAMEWORKS = Preferences
