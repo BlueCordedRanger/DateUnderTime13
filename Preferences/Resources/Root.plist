@@ -117,6 +117,12 @@
 			<string>Bold</string>
 		</dict>
 		<dict>
+        	<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>THE CHARACTER ':' MUST EXIST IN THE FORMAT OF THE 1ST OR THE 2ND LINE</string>
+        </dict>
+		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
