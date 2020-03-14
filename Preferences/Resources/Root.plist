@@ -20,7 +20,7 @@
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
-			<true/>
+			<false/>
 			<key>defaults</key>
 			<string>com.johnzaro.dateundertime13prefs</string>
 			<key>key</key>
@@ -64,7 +64,7 @@
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
-			<true/>
+			<false/>
 			<key>defaults</key>
 			<string>com.johnzaro.dateundertime13prefs</string>
 			<key>key</key>
@@ -108,7 +108,7 @@
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
-			<true/>
+			<false/>
 			<key>defaults</key>
 			<string>com.johnzaro.dateundertime13prefs</string>
 			<key>key</key>
@@ -180,14 +180,32 @@
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
-			<true/>
+			<false/>
 			<key>defaults</key>
 			<string>com.johnzaro.dateundertime13prefs</string>
 			<key>key</key>
-			<string>locationIndicator</string>
+			<string>hideLocationIndicator</string>
 			<key>label</key>
-			<string>Show location Indicator</string>
+			<string>Hide location Indicator</string>
 		</dict>
+		<dict>
+        	<key>cell</key>
+			<string>PSGroupCell</string>
+        </dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>action</key>
+			<string>reset:</string>
+			<key>label</key>
+			<string>Reset All Settings</string>
+		</dict>
+		<dict>
+        	<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>WHEN RESETING, RESPRING WILL OCCUR</string>
+        </dict>
 		<dict>
         	<key>cell</key>
 			<string>PSGroupCell</string>

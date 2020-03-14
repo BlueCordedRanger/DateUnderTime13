@@ -36,7 +36,7 @@ static NSMutableAttributedString *finalString;
 
 %end
 
-%group locationIndicatorGroup
+%group hideLocationIndicatorGroup
 
 	%hook _UIStatusBarIndicatorLocationItem
 
@@ -54,24 +54,37 @@ static NSMutableAttributedString *finalString;
 	@autoreleasepool
 	{
 		pref = [[HBPreferences alloc] initWithIdentifier: @"com.johnzaro.dateundertime13prefs"];
+		[pref registerDefaults:
+		@{
+			@"enabled": @NO,
+			@"format1": @"HH:mm",
+			@"fontSize1": @14,
+			@"bold1": @NO,
+			@"format2": @"E dd/MM",
+			@"fontSize2": @10,
+			@"bold2": @NO,
+			@"locale": @"en_US",
+			@"alignment": @1,
+			@"hideLocationIndicator": @NO
+    	}];
 
-		[pref registerBool: &enabled default: YES forKey: @"enabled"];
+		enabled = [pref boolForKey: @"enabled"];
 
 		if(enabled)
 		{
-			[pref registerObject: &format1 default: @"HH:mm" forKey: @"format1"];
-			[pref registerInteger: &fontSize1 default: 14 forKey: @"fontSize1"];
-			[pref registerBool: &bold1 default: YES forKey: @"bold1"];
+			format1 = [pref objectForKey: @"format1"];
+			fontSize1 = [pref integerForKey: @"fontSize1"];
+			bold1 = [pref boolForKey: @"bold1"];
 
-			[pref registerObject: &format2 default: @"E dd/MM" forKey: @"format2"];
-			[pref registerInteger: &fontSize2 default: 10 forKey: @"fontSize2"];
-			[pref registerBool: &bold2 default: YES forKey: @"bold2"];
+			format2 = [pref objectForKey: @"format2"];
+			fontSize2 = [pref integerForKey: @"fontSize2"];
+			bold2 = [pref boolForKey: @"bold2"];
 
-			[pref registerObject: &locale default: @"en_US" forKey: @"locale"];
+			locale = [pref objectForKey: @"locale"];
 
-			[pref registerInteger: &alignment default: 1 forKey: @"alignment"];
+			alignment = [pref integerForKey: @"alignment"];
 
-			[pref registerBool: &locationIndicator default: YES forKey: @"locationIndicator"];
+			hideLocationIndicator = [pref boolForKey: @"hideLocationIndicator"];
 
 			formatter1 = [[NSDateFormatter alloc] init];
 			formatter1.locale = [[NSLocale alloc] initWithLocaleIdentifier: locale];
@@ -93,7 +106,7 @@ static NSMutableAttributedString *finalString;
 
 			%init;
 
-			if(!locationIndicator) %init(locationIndicatorGroup);
+			if(hideLocationIndicator) %init(hideLocationIndicatorGroup);
 		}
 	}
 }

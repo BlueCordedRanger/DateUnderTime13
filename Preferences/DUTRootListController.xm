@@ -73,6 +73,16 @@
 	return _specifiers;
 }
 
+- (void)reset: (PSSpecifier*)specifier
+{
+    [[[HBPreferences alloc] initWithIdentifier: @"com.johnzaro.dateundertime13prefs"] removeAllObjects];
+
+    NSFileManager *manager = [NSFileManager defaultManager];
+    [manager removeItemAtPath:@"/var/mobile/Library/Preferences/com.johnzaro.dateundertime13prefs.plist" error: nil];
+
+    [self respring];
+}
+
 - (void)respring
 {
 	pid_t pid;

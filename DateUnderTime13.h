@@ -16,7 +16,7 @@ NSString *_Nullable locale;
 
 long alignment;
 
-BOOL locationIndicator;
+BOOL hideLocationIndicator;
 
 @interface _UIStatusBarStringView : UILabel
 @property(nullable, nonatomic, copy) NSString *text;
