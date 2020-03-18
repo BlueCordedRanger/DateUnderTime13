@@ -1,5 +1,7 @@
 #import "DateUnderTime13.h"
 
+#import <Cephei/HBPreferences.h>
+
 static UIFont *font1;
 static UIFont *font2;
 
@@ -7,6 +9,18 @@ static NSDateFormatter *formatter1;
 static NSDateFormatter *formatter2;
 
 static NSMutableAttributedString *finalString;
+
+static HBPreferences *pref;
+static BOOL enabled;
+static NSString *format1;
+static long fontSize1;
+static BOOL bold1;
+static NSString *format2;
+static long fontSize2;
+static BOOL bold2;
+static NSString *locale;
+static long alignment;
+static BOOL hideLocationIndicator;
 
 %hook _UIStatusBarStringView
 
